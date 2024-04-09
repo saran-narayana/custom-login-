@@ -40,7 +40,7 @@ class AuthManager extends Controller
             $request->validate([
                 'name'=>'required',
                 'email'=>'required|email|unique:users',
-                'password'=>'required'|{Password::min(8)->letters()->numbers()->symbol()],
+                'password'=>['required'|Password::min(8)->letters()->numbers()->symbol()],
             ]);
 
             $data['name'] = $request->name;
